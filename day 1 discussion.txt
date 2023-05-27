@@ -1,6 +1,22 @@
+
 Session 1:Core Java Master Course
 
-Introduction to the course
+Agenda:
+--------
+1. Course introduction 
+	
+2. Trainer introduction
+	https://www.linkedin.com/in/rajeevguptajavatrainer/
+	
+3. SW installation
+
+https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html
+https://www.jetbrains.com/idea/download/#section=linux
+
+
+https://www.youtube.com/watch?v=QH18cZwDOyU&list=PLv2-IhRmhbyQpigiJ-cO1rz8Plp0tzSmY
+
+
 Getting started with Java, Basics Logic building and OOPs
 
 
@@ -78,6 +94,10 @@ https://www.timeanddate.com/calendar/months/
 	int c[][] = new int[3][3];
 	
 
+
+
+Assignments on basics programming skills
+---------------------------------------
 8. matrix add/mulitplication
 
 
