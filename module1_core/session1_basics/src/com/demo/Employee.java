@@ -1,49 +1,44 @@
 package com.demo;
 //POJO
 public class Employee {
-    private int id;
-    private String name;
-    private double salary;//Why BD?
+    private int id;//instance varaible
+    private  String name;//instance varaible
+    private   double salary;//instance varaible
 
-    public Employee(){}
-    public Employee(int id, String name, double salary) {
-        this.id = id;
+    private static int counter=0;
+
+    //static vs normal (intstance method)
+    //to call the static method u dont need the object of Employee class
+    //static method dont have this ref (pointer)
+
+    public static int getCounter(){
+        return counter;
+    }
+    //ctr:
+    public Employee(){
+        this("foo",1000);
+    }
+    //para
+    public Employee( String name, double salary) {
+        //this();
+        this.id = ++counter;
         this.name = name;
         this.salary = salary;
     }
-
-    public int getId() {
-        return id;
+    //Copy ctr C++ and in java
+    public Employee(Employee employe) {
+        this.id = employe.id;
+        this.name = employe.name;
+        this.salary = employe.salary;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void printEmployee(){
+        System.out.println("id :"+ id +" name : "+ name+" salary: "+ salary);
     }
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public double getSalary() {
-        return salary;
-    }
-
-    public void setSalary(double salary) {
-        this.salary = salary;
-    }
-
-    //Why? StringBuilder not string catnation
-    @Override
-    public String toString() {
-        final StringBuilder sb = new StringBuilder("Employee{");
-        sb.append("id=").append(id);
-        sb.append(", name='").append(name).append('\'');
-        sb.append(", salary=").append(salary);
-        sb.append('}');
-        return sb.toString();
-    }
+     //i want to force user to call this method...
+     public double getTotalSalary(){
+          return  0.8*salary;
+     }
 }

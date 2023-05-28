@@ -1,12 +1,33 @@
 
+
+Ref for our trainng:
+-------------------
+Head first core java
+thinking in java
+YAPN
+Effective java
+Inside JVM (refer it site 6 ch)
+Head first design pattern
+Java reflection
+https://jenkov.com/
+
+
+
+
+
+
+
+
 Session 1:Core Java Master Course
 
 Agenda:
 --------
-1. Course introduction 
-	
-2. Trainer introduction
+
+1. Trainer introduction
 	https://www.linkedin.com/in/rajeevguptajavatrainer/
+	
+	
+2. Course introduction 
 	
 3. SW installation
 
@@ -209,6 +230,14 @@ int a[]= {78,88,90,25,99,100};
 15 .seprating zero and ones
 0,1,0,0,1,0,1,1
 0 0 0 0 1 1 1 1 
+
+
+
+R=A+B+-
+
+
+
+String a="foo"+"bar"+"jar";
 
 
 
