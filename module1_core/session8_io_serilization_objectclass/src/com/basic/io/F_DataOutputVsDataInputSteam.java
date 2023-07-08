@@ -13,7 +13,6 @@ public class F_DataOutputVsDataInputSteam {
 
         DataOutputStream dos=new DataOutputStream
                 (new BufferedOutputStream(new FileOutputStream(new File("data3.txt"))));
-
         for(int i=0;i<5;i++){
             dos.writeInt(i);
             dos.writeShort(i);
@@ -25,8 +24,6 @@ public class F_DataOutputVsDataInputSteam {
         for(int i=0;i<5;i++){
             System.out.println(dis.readInt()+" "+ dis.readShort());
         }
-
-
         dis.close();
 
         long end=System.currentTimeMillis();

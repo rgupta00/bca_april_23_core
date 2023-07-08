@@ -34,8 +34,6 @@ class Window implements  AutoCloseable{
 public class H_AutomaticResourceMgt {
     public static void main(String[] args) {
         //kab lagaga? ARM can be applied to a class iff it extends a class ie called AutoClosbable
-
-
         try(Door door=new Door()){
             door.doLogicDoor();
         }catch (Exception ex){
