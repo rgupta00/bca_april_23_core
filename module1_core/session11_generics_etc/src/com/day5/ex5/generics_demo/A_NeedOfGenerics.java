@@ -3,25 +3,23 @@ import java.util.*;
 public class A_NeedOfGenerics {
 	
 	public static void main(String[] args) {
-		//java 5
+		//java 5, type erased...
 		int sum=0;
-		List list=getList();
+		List<Integer> list=getList();
 
-		for(Object temp:list){
-			if(temp instanceof Integer) {
-				sum += (Integer) temp;
-			}
+		for(Integer temp:list){
+				sum += temp;
 		}
 		System.out.println(sum);
 
 
 	}
 
+	//ravi
 	public static List getList(){
-		List list=new ArrayList();
+		List<Integer> list=new ArrayList<>();
 		list.add(33);
 		list.add(33);
-		list.add("foo");
 
 		return  list;
 	}

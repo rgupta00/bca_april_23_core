@@ -48,21 +48,20 @@ public class B_NeedOfGenerics {
 
 	//? extends XX => upper bound
 	//? super XX  => Lower bound
-//	public static void print(List<? extends Object> list){
+	public static void print(List<? extends Object> list){
+		for (Object temp: list){
+			System.out.println(temp);
+		}
+	}
+
+
+//	public static void print(List<?> list){
 //		//print the data but u can not change the data?
 //		//list.add("foo");
 //		for (Object temp: list){
 //			System.out.println(temp);
 //		}
 //	}
-
-	public static void print(List<?> list){
-		//print the data but u can not change the data?
-		//list.add("foo");
-		for (Object temp: list){
-			System.out.println(temp);
-		}
-	}
 
 
 
