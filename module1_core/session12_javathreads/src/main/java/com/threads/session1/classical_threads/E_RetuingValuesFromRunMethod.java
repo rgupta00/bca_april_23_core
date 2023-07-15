@@ -25,6 +25,7 @@ public class E_RetuingValuesFromRunMethod {
         Cal cal=new Cal(3,5);
         Thread t=new Thread(cal);
         t.start();
+
         t.join();
         System.out.println(cal.getSum());
     }

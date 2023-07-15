@@ -30,11 +30,15 @@ public class D_HandingExInThreads {
 
     public static void main(String[] args) {
 
-            Thread
-                    .setDefaultUncaughtExceptionHandler(( t,  e) -> System.out.println(t.getName()+": "+ e.getCause()));
+        //call back
+        Thread.setDefaultUncaughtExceptionHandler(( t,  e)-> System.out.println(t.getName()+": "+ e));
+
+
+//            Thread.setDefaultUncaughtExceptionHandler
+//                    (( t,  e) -> System.out.println(t.getName()+": "+ e.getCause()));
 
             Thread t=new Thread(new JobWithEx(),"test1");
-           // t.setUncaughtExceptionHandler(new MyExHandler());
+            t.setUncaughtExceptionHandler(new MyExHandler());
             t.start();
 
 
