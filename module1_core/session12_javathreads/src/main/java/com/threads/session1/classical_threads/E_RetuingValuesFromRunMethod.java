@@ -2,12 +2,21 @@ package com.threads.session1.classical_threads;
 
 class Cal implements Runnable{
     int x, y, sum;
+   volatile boolean isDone=false;
+
     public Cal(int x, int y){
         this.x = x;
         this.y=y;
     }
 
     public int getSum(){
+        if(!isDone){
+            synchronized (this){
+                try{
+                    wait();
+                }catch (InterruptedException e){}
+            }
+        }
         return sum;
     }
     @Override
@@ -16,6 +25,10 @@ class Cal implements Runnable{
             Thread.sleep(1000);
         }catch (Exception e){}
         sum=x+y;
+        isDone=true;
+        synchronized (this){
+            notify();
+        }
 
     }
 }
@@ -26,7 +39,7 @@ public class E_RetuingValuesFromRunMethod {
         Thread t=new Thread(cal);
         t.start();
 
-        t.join();
+       // t.join();
         System.out.println(cal.getSum());
     }
 }
