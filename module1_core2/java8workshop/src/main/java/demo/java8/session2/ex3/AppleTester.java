@@ -18,59 +18,17 @@ public class AppleTester {
 						new Apple("green", 200),
 						new Apple("red", 250));
 
-			Predicate<Apple>
-					greenApplePredicate= a->a.getColor().equals("green");
 
-			List<Apple> greenApples=
-					AppleApp.getAllApplesOnPredicate(apples, greenApplePredicate);
-
-			//method ref vs lambda
-//			Predicate<Apple>
-//					heavyApplePredicate= a-> a.getWeight()>=250;
-
-			Predicate<Apple>
-					heavyApplePredicate= AppleLogic::isHeavy;
-
-
-			List<Apple> heavyApples=
-					AppleApp.getAllApplesOnPredicate(apples, heavyApplePredicate);
-
-			System.out.println("----------all green apples----");
-			for(Apple temp: greenApples){
-			System.out.println(temp);
-		    }
-
-			System.out.println("----------all heavy apples----");
-			for(Apple temp: heavyApples){
-				System.out.println(temp);
-			}
+		Predicate<Apple>p1= a->a.getWeight()>=250;
+		Predicate<Apple> p2=a->a.getColor().equals("green");
+		List<Apple> heavyApples=AppleApp.getAllpplesOnCondition(apples,p1);
+		List<Apple> greenApples=AppleApp.getAllpplesOnCondition(apples,p2);
 
 		//heavy as well as green
-			Predicate<Apple> p3=greenApplePredicate.and(heavyApplePredicate);
+			Predicate<Apple> p3=p1.or(p2);
+			List<Apple> greenAndHeavyApples=AppleApp.getAllpplesOnCondition(apples,p3);
 
-			List<Apple> heavyAndGreenApples=
-					AppleApp.getAllApplesOnPredicate(apples, p3);
-
-
-		//Most imp functional interface in java 8
-		
-		//Predicate	
-			
-		//Function
-		
-		//Consumer
-		
-		//biConsumer
-		//Map<String, Integer>map=new HashMap<String, Integer>();
-		
-		//Supplier
-	
-		
-		//BiFunction
-	
-		
-		
-		
+			greenAndHeavyApples.forEach(a-> System.out.println(a));
 	}
 }
 

@@ -2,21 +2,46 @@ package demo.java8.session2.ex3;
 
 import java.util.*;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class AppleApp {
 
-    //OCP
-    //all green application
-    //behaviorual paramterized design pattern => strategy desing pattern
-    public static  List<Apple> getAllApplesOnPredicate(List<Apple> apples,
-                                                 Predicate<Apple> predicate){
-        List<Apple> resultList=new ArrayList<>();
-        for(Apple temp: apples){
-            if(predicate.test(temp)){
-                resultList.add(temp);
-            }
-        }
-        return resultList;
+    public static List<Apple> getAllpplesOnCondition(List<Apple>apples, Predicate<Apple>predicate){
+       return apples.stream().filter(predicate).collect(Collectors.toList());
     }
 
+//    public static List<Apple> getAllpplesOnCondition(List<Apple>apples, Predicate<Apple>predicate){
+//        List<Apple> appleOnCondition=new ArrayList<>();
+//        for(Apple temp: apples){
+//            if(predicate.test(temp)){
+//                appleOnCondition.add(temp);
+//            }
+//        }
+//        return appleOnCondition;
+//    }
+
+
+
+    //OCP: SOLID
+    //all heavy apples >=250
+//    public static List<Apple> getAllHeavyApples(List<Apple>apples){
+//        List<Apple> appleOnCondition=new ArrayList<>();
+//        for(Apple temp: apples){
+//            if(temp.getWeight()>=250){
+//                appleOnCondition.add(temp);
+//            }
+//        }
+//        return appleOnCondition;
+//    }
+
+    //all green apples
+//    public static List<Apple> getAllGeenApples(List<Apple>apples){
+//        List<Apple> appleOnCondition=new ArrayList<>();
+//        for(Apple temp: apples){
+//            if(temp.getColor().equals("green")){
+//                appleOnCondition.add(temp);
+//            }
+//        }
+//        return appleOnCondition;
+//    }
 }
