@@ -16,115 +16,100 @@ public class CopyOfDemoBookCaseStudyProblem {
 		List<Book> allBooks = loadAllBooks();
 
 		// 1. Find books with more then 400 pages
-//		List<Book> booksWithMoreThen400Pages
-//				=allBooks.stream()
-//				.filter(b->b.getPages()>=400)
+//		List<Book> booksWithMoreThen400Pages= allBooks.stream()
+//				.filter(b-> b.getPages()>400)
 //				.collect(toList());
 //
-//		booksWithMoreThen400Pages.forEach(b-> System.out.println(b));
-
-		
 		// 2. Find all books that are java books and more then 400 pages
-//		Predicate<Book> p1=b->b.getPages()>=400;
-//		Predicate<Book> p2=b->b.getTitle().equals("java");
-//		List<Book> booksWithMoreThen400Pages
-//				=allBooks.stream()
+
+//		Predicate<Book>p1=b-> b.getPages()>400;
+//		Predicate<Book>p2=b-> b.getSubject()==Subject.JAVA;
+//
+//		List<Book> booksWithMoreThen400Pages= allBooks.stream()
 //				.filter(p1.and(p2))
 //				.collect(toList());
-//
-//		booksWithMoreThen400Pages.forEach(b-> System.out.println(b));
-		
-		// 3. We need the top three longest books
 
-//		Comparator<Book> comparator=
-//				( o1,  o2)-> Integer.compare(o2.getPages(), o1.getPages());
-//
-//
-//
-//
-//
-//		List<Book> top2LogestBook
-//				=allBooks.stream()
-//				.sorted(( o1,  o2)-> Integer.compare(o2.getPages(), o1.getPages()) )
-//				.limit(2)
+//		Comparator<Book> comparator = ( o1,  o2) ->
+//				 Integer.compare(o2.getPages(), o1.getPages());
+
+
+
+		// 3. We need the top three longest books
+//		List<Book> top3Books= allBooks.stream()
+//				.sorted(comparator)
+//				.limit(3)
 //				.collect(toList());
-//		top2LogestBook.forEach(b-> System.out.println(b));
+
+//		List<Book> top3Books= allBooks.stream()
+//				.sorted(Comparator.comparing(Book::getPages).reversed())
+//				.limit(3)
+//				.collect(toList());
 
 		// 4. We need from the fourth to the last longest books
 
+//		List<Book> top3Books= allBooks.stream()
+//				.sorted(Comparator.comparing(Book::getPages).reversed())
+//				.skip(3)
+//				.collect(toList());
+
 		// 5. We need to get all the publishing years
+//		List<Integer> booksWithMoreThen400Pages= allBooks.stream()
+//				.map(b->b.getYear())
+//				.distinct()
+//				.collect(toList());
+
+//		Set<Integer> booksWithMoreThen400Pages= allBooks.stream()
+//				.map(b->b.getYear())
+//				.collect(toSet());
+
+		//print all the authors
+
+//		allBooks.stream()
+//				.forEach(b-> System.out.println(b));
+
+
+//		Stream<Book>allBooksStream=  allBooks.stream();
+
+//		Stream<Stream<Author>>allBooksStream=
+//				allBooks.stream()
+//						.map(b->b.getAuthors().stream());
+
+//		Stream<Author> allBooksStream=
+//				allBooks.stream()
+//				.flatMap(b->b.getAuthors().stream())
+//						.forEach(a-> System.out.println(a));
+
+
+		//printing all the authors
+//				allBooks.stream()
+//						.flatMap(b->b.getAuthors().stream())
+//						.forEach(a-> System.out.println(a));
+
+		//printing all the authors
+//		allBooks.stream()
+//				.flatMap(b->b.getAuthors().stream())
+//				.map(a-> a.getName())
+//				.distinct()
+//				.forEach(an-> System.out.println(an));
+
+//i want all the authors name , seprated
+//	String authors= allBooks.stream()
+//				.flatMap(b->b.getAuthors().stream())
+//				.map(a-> a.getName())
+//				.distinct()
+//				.collect(Collectors.joining(" ,"));
+//
+//		System.out.println(authors);
+
+
+		//most recent publish book
+//		Optional<Book> opBook=
+//				allBooks.stream().min(Comparator.comparing(Book::getYear).reversed());
+//		Book book=opBook.orElseThrow(()-> new RuntimeException());
+//		System.out.println(book);
+		//print all the unique countries of all the authors
 
 		// 6. We need all the authors names who have written a book
-
-		//i want all the author names
-		//List<Book>---> Book --> List<Author>
-//		Stream<Stream<Author>>  st=
-//				allBooks.stream().map(b->b.getAuthors().stream());
-//
-
-//		Stream<Author>  st=
-//				allBooks.stream().flatMap(b->b.getAuthors().stream());
-
-//		List<String> names=
-//				allBooks.stream()
-//						.flatMap(b->b.getAuthors().stream())
-//						.map(a->a.getName())
-//						.distinct()
-//						.collect(toList());
-
-//		Set<String> names=
-//				allBooks.stream()
-//						.flatMap(b->b.getAuthors().stream())
-//						.map(a->a.getName())
-//						.collect(toSet());
-//
-//		names.forEach(n-> System.out.println(n));
-
-
-
-
-		// We need all the origin countries of the authors
-
-//				Set<String> names=
-//				allBooks.stream()
-//						.flatMap(b->b.getAuthors().stream())
-//						.map(a->a.getCountry())
-//						.collect(toSet());
-//
-//		names.forEach(n-> System.out.println(n));
-
-
-		//
-
-		// We want the most recent published book.
-	
-		// We want to know if all the books are written by more than one author
-//		boolean status= allBooks
-//				.stream()
-//				.allMatch( book -> book.getAuthors().size()>1);
-//
-//		System.out.println(status);
-
-//		boolean status= allBooks
-//				.stream()
-//				.noneMatch( book -> book.getAuthors().size()>1);
-//
-//		System.out.println(status);
-
-		//we want any book writen by more then one author
-
-		Optional<Book> bookOpt=  allBooks
-				.stream()
-				.filter(b->b.getAuthors().size()==1)
-				.findAny();
-
-		String tiltle= bookOpt.map(b->b.getTitle()).orElse(" not found");
-		System.out.println(tiltle);
-//		Book book=bookOpt.orElse(null);
-
-
-
-
 
 
 		// We want one of the books written by more than one author. (findAny)
@@ -145,12 +130,12 @@ public class CopyOfDemoBookCaseStudyProblem {
 
 	
 		// We want a Map of book per year.
-		Map<Integer, List<Book>>bookListMap=
-				allBooks.stream()
-						.collect(Collectors.groupingBy(Book::getYear));
-
-		bookListMap.forEach(( k,  v)-> System.out.println("key: "+k+ " : "+ v));
-
+//		Map<Integer, List<Book>>bookListMap=
+//				allBooks.stream()
+//						.collect(Collectors.groupingBy(Book::getYear));
+//
+//		bookListMap.forEach(( k,  v)-> System.out.println("key: "+k+ " : "+ v));
+//
 
 		
 

@@ -137,6 +137,18 @@ public class DemoMap {
         map.put(18,"sumit");
         map.put(11,"kapil");
 
+      //  Set<Map.Entry<Integer, String>> entrySet=   map.entrySet();
+//        for (Map.Entry<Integer, String> entry: entrySet) {
+//            System.out.println(entry.getKey()+": "+ entry.getValue());
+//        }
+
+//        Set<Integer> keySet=   map.keySet();
+//
+//        for(Integer key: keySet){
+//            System.out.println(key+": "+ map.get(key));
+//        }
+
+
         //1 : java 7 map.entrySet is better then map.keySet?
 //        Set<Map.Entry<Integer, String>> entrySet=map.entrySet();
 //        for (Map.Entry<Integer, String> entry: entrySet){
@@ -146,15 +158,17 @@ public class DemoMap {
         //1
       //  map.forEach((k,v)-> System.out.println(k+": "+ v));
 
-//        map.entrySet()
-//                .stream()
-//                .sorted(Map.Entry.comparingByValue())//comparingByValue vs comparingByKey
-//                .forEach( e-> System.out.println(e.getKey()+": "+ e.getValue()));
+        map.entrySet()
+                .stream()
+                .sorted(Map.Entry.comparingByValue())//comparingByValue vs comparingByKey
+                .forEach( e-> System.out.println(e.getKey()+": "+ e.getValue()));
 
-        Map<Emp, Double> map2=new HashMap<>();
-        map2.put(new Emp(1,"raj",10000),10000.00);
-        map2.put(new Emp(14,"ekta",6000),6000.00);
-        map2.put(new Emp(162,"sumit",7000),7000.00);
+//        Map<Emp, Double> map2=new HashMap<>();
+//        map2.put(new Emp(1,"raj",10000),10000.00);
+//        map2.put(new Emp(14,"ekta",6000),6000.00);
+//        map2.put(new Emp(162,"sumit",7000),7000.00);
+
+
 
 //        map2.entrySet()
 //                .stream()
@@ -167,10 +181,10 @@ public class DemoMap {
 
         Comparator<Emp> comparator2=Comparator.comparing(Emp::getSalary).reversed();
 
-        map2.entrySet()
-                .stream()
-                .sorted(Map.Entry.comparingByKey(comparator2))//comparingByValue vs comparingByKey
-                .forEach( e-> System.out.println(e.getKey()+": "+e.getValue()));
+//        map2.entrySet()
+//                .stream()
+//                .sorted(Map.Entry.comparingByKey(comparator2))//comparingByValue vs comparingByKey
+//                .forEach( e-> System.out.println(e.getKey()+": "+e.getValue()));
 
 
 

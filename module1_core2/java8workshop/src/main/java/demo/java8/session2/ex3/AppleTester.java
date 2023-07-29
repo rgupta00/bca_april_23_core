@@ -18,17 +18,28 @@ public class AppleTester {
 						new Apple("green", 200),
 						new Apple("red", 250));
 
+		//lamabda and method ref
 
-		Predicate<Apple>p1= a->a.getWeight()>=250;
-		Predicate<Apple> p2=a->a.getColor().equals("green");
-		List<Apple> heavyApples=AppleApp.getAllpplesOnCondition(apples,p1);
-		List<Apple> greenApples=AppleApp.getAllpplesOnCondition(apples,p2);
+			// i want to get all heavy applies
+//			Predicate<Apple> heavyApplePredicate= a-> a.getWeight()>=250;
 
-		//heavy as well as green
-			Predicate<Apple> p3=p1.or(p2);
-			List<Apple> greenAndHeavyApples=AppleApp.getAllpplesOnCondition(apples,p3);
+			Predicate<Apple> heavyApplePredicate= Apple::isHeavyApple;
 
-			greenAndHeavyApples.forEach(a-> System.out.println(a));
+			Predicate<Apple> heavyApplePredicateV2= AppleLogic::isHeavy;
+
+			Predicate<Apple> heavyGeenApples= Apple::isGreen;
+
+
+//		Predicate<Apple>p1= a->a.getWeight()>=250;
+//		Predicate<Apple> p2=a->a.getColor().equals("green");
+//		List<Apple> heavyApples=AppleApp.getAllpplesOnCondition(apples,p1);
+//		List<Apple> greenApples=AppleApp.getAllpplesOnCondition(apples,p2);
+//
+//		//heavy as well as green
+//			Predicate<Apple> p3=p1.or(p2);
+//			List<Apple> greenAndHeavyApples=AppleApp.getAllpplesOnCondition(apples,p3);
+//
+//			greenAndHeavyApples.forEach(a-> System.out.println(a));
 	}
 }
 

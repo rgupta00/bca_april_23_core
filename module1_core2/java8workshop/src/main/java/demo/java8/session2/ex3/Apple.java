@@ -8,9 +8,14 @@ public class Apple {
 	private String color;
 	private int weight;
 
-//	public   boolean isHeavy(){
-//		return weight>=250;
-//	}
+	//		boolean		this
+	public boolean isHeavyApple(){
+		return this.getWeight()>=250;
+	}
+
+	public boolean isGreen(){
+		return  this.getColor().equals("green");
+	}
 
 
 	public String getColor() {
