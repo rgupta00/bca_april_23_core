@@ -9,5 +9,6 @@ public class Main {
     public static void main(String[] args) {
         DeliveryService deliveryService=new DeliveryService();
        List<Invoice>list= deliveryService.delivery();
+        System.out.println(list);
     }
 }

@@ -1,12 +1,13 @@
 package invoice.service;
 
 import invoice.model.Invoice;
+import invoice.service.impl.InvoiceServiceImpl;
 
 import java.util.List;
 
-public class InvoiceService {
-
-    public List<Invoice> getInvoiceList() {
-        return List.of(new Invoice(569.00));
+public interface InvoiceService {
+    public static InvoiceService getInvoiceService(){
+        return new InvoiceServiceImpl();
     }
+    public List<Invoice> getInvoiceList() ;
 }
